@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if  ! which yay; then
+    sudo pacman -S base-devel
     git clone https://aur.archlinux.org/yay.git /opt/
     cd /opt/yay
     makepkg -si
