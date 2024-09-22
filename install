@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# yay install
+# configure yay 
 if  ! which yay; then
     sudo pacman -S --noconfirm base-devel
     git clone https://aur.archlinux.org/yay.git
@@ -9,3 +9,13 @@ if  ! which yay; then
     cd ../
     rm -rf yay
 fi
+
+yay --noconfirm
+
+# install dependencies
+yay -S --noconfirm hyprland pipewire-jack gnu-free-fonts neovim \
+    firefox-developer-edition stow wl-clipboard pipx ttf-firacode-nerd \
+    pipewire-jack waybar starship
+
+
+# configure s

@@ -4,3 +4,5 @@ conflicted = '~'
 stashed = '*'
 staged = '+'
 untracked = '?'
+
+continuation_prompt = '▶ '
