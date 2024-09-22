@@ -15,7 +15,9 @@ yay --noconfirm
 # install dependencies
 yay -S --noconfirm hyprland pipewire-jack gnu-free-fonts neovim \
     firefox-developer-edition stow wl-clipboard pipx ttf-firacode-nerd \
-    pipewire-jack waybar starship
+    pipewire-jack waybar vlc speech-dispatcher zsh eza bat zoxide \
+    xdg-desktop-portal-hyprland rofi-wayland wlroots brightnessctl
 
 
-# configure s
+# chsh azevedo (vai pedir o password) (/bin/zsh)
+# append ZVM_VI_INSERT_ESCAPE_BINDKEY=jk in /home/azevedo/.local/share/zinit/plugins/jeffreytse---zsh-vi-mode
