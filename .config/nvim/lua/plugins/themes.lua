@@ -1,4 +1,3 @@
--- Themes
 return {
 	{
 		"catppuccin/nvim",
