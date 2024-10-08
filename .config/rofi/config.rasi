@@ -1,0 +1,16 @@
+configuration{
+    modi: "drun";
+    icon-theme: "Adawaita";
+    show-icons: true;
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: " ❯ ";
+    opacity: 1;
+}
+
+@import "/home/azevedo/Dotfiles/.config/rofi/catppuccin-mocha.rasi"
+@theme "catppuccin-mocha"
+

@@ -3,8 +3,8 @@ local function on_attach(bufnr)
     local map = require("helpers.keys").map
 
     api.config.mappings.default_on_attach(bufnr)
-    map('n', '?',     api.tree.toggle_help, 'Open help commands')
-    map('n', '<C-cr>',api.node.open.vertical, 'Open in vertical split')
+    map('n', '?', api.tree.toggle_help, 'Open help commands')
+    map('n', '<C-cr>', api.node.open.vertical, 'Open in vertical split')
 end
 
 return {
@@ -17,7 +17,7 @@ return {
         local map = require("helpers.keys").map
         map('n', '<leader>fe', '<cmd>NvimTreeToggle<CR>', 'Open file browser')
         map('n', '<esc>', '<cmd>NvimTreeClose<CR>', 'Close file browser')
-        ntree.setup {
+        ntree.setup({
             disable_netrw = true,
             on_attach = on_attach,
             view = {
@@ -35,6 +35,6 @@ return {
 
                 }
             }
-        }
+        })
     end
 }

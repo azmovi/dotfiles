@@ -1,12 +1,12 @@
 return {
     'nvim-treesitter/nvim-treesitter-context',
     build = ':TSUpdate',
-    dependencies = {'nvim-treesitter/nvim-treesitter'},
-    config = function ()
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
         local map = require("helpers.keys").map
         local context = require('treesitter-context')
         local treesitter = require('nvim-treesitter.configs')
-        treesitter.setup{
+        treesitter.setup({
             ensure_installed = {
                 'python',
                 'lua',
@@ -34,8 +34,8 @@ return {
                 extended_mode = true,
                 max_file_lines = nil,
             }
-        }
-        context.setup{
+        })
+        context.setup({
             enable = true,
             max_lines = 0,
             min_window_height = 0,
@@ -46,7 +46,12 @@ return {
             separator = nil,
             zindex = 20,
             on_attach = nil,
-        }
-        map('n', '<leader>j', function() context.go_to_context(vim.v.count1) end, 'Jump to context')
+        })
+        map(
+            'n',
+            '<leader>j',
+            function() context.go_to_context(vim.v.count1) end,
+            'Jump to context'
+        )
     end
 }

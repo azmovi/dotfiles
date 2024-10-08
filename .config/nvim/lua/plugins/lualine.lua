@@ -1,13 +1,13 @@
 return {
     'nvim-lualine/lualine.nvim',
-    dependencies = {'nvim-tree/nvim-web-devicons'},
-    config = function ()
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
         local lualine = require('lualine')
-        lualine.setup {
+        lualine.setup({
             options = {
-                component_separators = { left = '|', right = '|'},
+                component_separators = { left = '|', right = '|' },
                 section_separators = { left = '', right = '' },
-            }
-        }
+            },
+        })
     end
 }

@@ -1,3 +1,8 @@
+if [[ -z $DISPLAY ]] && [[ "$(tty)" = /dev/tty1 ]]; then
+    exec Hyprland
+fi
+
+fastfetch
 
 ## Plugin manager - Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -46,14 +51,23 @@ setopt hist_find_no_dups
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
-alias ls='eza'
+alias ls='eza --icons=always'
 alias cat='bat'
-alias tree='eza -T'
+alias tree='eza -T --icons=always'
+alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# Env
+export EDITOR=nvim
+export TERM=kitty
+export GIT_EDITOR=nvim
+export BROWSER=firefox-developer-edition
+export SCREENSHOT_DIR=~/Pictures
+export PATH="$HOME/.local/bin:$PATH"

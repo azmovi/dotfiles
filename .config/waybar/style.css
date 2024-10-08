@@ -1,0 +1,107 @@
+* {
+    font-family: FiraCode Nerd Font;
+    font-size: 14px;
+    min-height: 32px;
+}
+
+window#waybar {
+    background-color: rgba(30, 30, 46, 0.75);
+}
+
+#workspaces {
+    background-color: transparent;
+    padding: 0px 9px;
+}
+
+#workspaces button {
+    padding: 0px 3px;
+    color: rgb(203, 166, 247);
+    border: none;
+    font-size: 20px;
+}
+
+#workspaces button.active {
+    color: rgb(245, 194, 231);
+    background-color: transparent;
+    border: none;
+}
+
+#workspaces button:hover {
+    color: rgb(245, 194, 231);
+    background: transparent;
+    border: none;
+}
+
+
+#custom-powermenu,
+#custom-playerctl #custom-playerlabel #clock,
+#battery,
+#backlight,
+#network,
+#temperature,
+#pulseaudio {
+    background: transparent;
+    border-radius: 20px;
+    margin-left: 1px;
+    margin-right: 1px;
+    padding-right: 9px;
+    padding-left: 9px;
+}
+
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#clock {
+    color: #cdd6f4;
+    font-weight: bold;
+}
+
+#pulseaudio.muted {
+    color: #f38ba8;
+}
+
+#custom-playerlabel {
+    color: #cdd6f4;
+}
+
+
+#custom-playerctl {
+    color: #cba6f7;
+}
+
+#battery {
+    color: #a6e3a1;
+}
+
+#pulseaudio {
+    color: #74c7ec;
+}
+
+#network {
+    color: #89b4fa;
+}
+
+#backlight {
+    color: #f9e2af;
+}
+
+#temperature {
+    color: #fab387;
+}
+
+#custom-powermenu {
+    margin-right: 6px;
+    color: #f38ba8;
+}
+
+#custom-separator {
+    font-weight: bold;
+    color: #cba6f7;
+}

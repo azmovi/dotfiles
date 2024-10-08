@@ -7,7 +7,6 @@ return {
             'nvim-telescope/telescope-fzf-native.nvim',
             build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
         },
-        "AckslD/nvim-neoclip.lua",
     },
     config = function()
         local map = require("helpers.keys").map
@@ -20,7 +19,7 @@ return {
         map('n', '<leader>fs', builtin.git_status, 'Telescope git status')
         map('n', '<leader>w', builtin.spell_suggest, 'Telescope spell sugest')
 
-        telescope.setup {
+        telescope.setup({
             defaults = {
                 mappings = {
                     n = {
@@ -39,10 +38,8 @@ return {
                     override_file_sorter = true,
                     case_mode = "smart_case",
                 },
-                neoclip = {},
             },
-        }
+        })
         telescope.load_extension('fzf')
-        telescope.load_extension('neoclip')
     end
 }
