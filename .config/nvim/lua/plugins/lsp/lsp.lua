@@ -1,4 +1,4 @@
-local lsps = { 'lua_ls', 'pyright', 'cssls'}
+local lsps = { 'lua_ls', 'pyright', 'cssls', 'clangd'}
 local signs = {
     Error = ' ',
     Warn = ' ',
@@ -41,10 +41,11 @@ return {
     {
         "neovim/nvim-lspconfig",
         after = "mason-lspconfig.nvim",
+        dependencies = 'saghen/blink.cmp',
         config = function()
             local lspconfig = require("lspconfig")
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local map = require('helpers.keys').map
+            local blink = require('blink.cmp')
             local on_attach = function()
                 map('n', 'gd', vim.lsp.buf.definition, 'go to definition')
                 map('n', 'gD', vim.lsp.buf.declaration, 'go to declaration')
@@ -63,8 +64,8 @@ return {
 
             for _, lsp in ipairs(lsps) do
                 lspconfig[lsp].setup({
+                    capabilities = blink.get_lsp_capabilities(),
                     on_attach = on_attach,
-                    capabilities = capabilities,
                     settings = settings[lsp],
                 })
             end

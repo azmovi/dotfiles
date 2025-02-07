@@ -17,7 +17,8 @@ yay -S --noconfirm hyprland pipewire-jack gnu-free-fonts neovim btop keepassxc \
     firefox-developer-edition stow wl-clipboard pipx ttf-firacode-nerd jq \
     pipewire-jack waybar vlc speech-dispatcher zsh eza bat zoxide alsa-tools \
     xdg-desktop-portal-hyprland rofi-wayland wlroots brightnessctl hypapper \
-    cmake grim slurp luarocks python-pynvim hyprcwd nodejs npm sqlite
+    cmake grim slurp luarocks python-pynvim hyprcwd nodejs npm sqlite \
+    hyprland-qtutils
 
 
 # yay -Rns --noconfirm nano-syntax-highlitghing nano

@@ -5,6 +5,7 @@ map('i', 'jk', '<ESC>', 'Normal mode')
 map('n', '<leader>x', '<cmd>nohl<cr>', 'Clear highlights')
 map('n', '<leader>y', '<cmd>%y+<cr>', 'Clipboard all')
 map('v', '<leader>y', '"+y', 'Clipboard visual session')
+map('n', 'p', 'p=`]', 'Reindent after pasting')
 
 -- Stay in visual mode
 map('v', '<', '<gv', 'Indent code to right')
@@ -55,3 +56,6 @@ function ToggleSpellCheck()
 end
 
 map('n', '<leader>d', ':lua ToggleSpellCheck()<cr>', 'Activate spell checker')
+
+map('i', '<M-n>', '<Right>', 'advance one character')
+

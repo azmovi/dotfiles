@@ -71,3 +71,4 @@ export GIT_EDITOR=nvim
 export BROWSER=firefox-developer-edition
 export SCREENSHOT_DIR=~/Pictures
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"

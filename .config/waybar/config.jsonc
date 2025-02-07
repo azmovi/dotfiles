@@ -4,8 +4,8 @@
     "modules-left": [
         "hyprland/workspaces",
         "custom/separator",
-        "custom/playerctl",
-        "custom/playerlabel"
+        "custom/playerlabel",
+        "custom/playerctl"
 
     ],
 
@@ -33,7 +33,7 @@
     },
 
     "custom/separator": {
-        "format": "|"
+        "format": "| "
     },
 
     "clock": {
@@ -62,14 +62,14 @@
 
     "pulseaudio": {
         "format": "{icon}",
+        "format-bluetooth": " ",
         "format-alt": "{volume}% {icon}",
-        "format-bluetooth": "  {volume}%",
-        "format-bluetooth-muted": "󰝟 ",
+        "format-bluetooth-muted": "󰝟  ",
         "format-muted": "󰝟 ",
         "format-icons":[
             " ",
             " ",
-            " "
+            "  "
         ],
     },
 

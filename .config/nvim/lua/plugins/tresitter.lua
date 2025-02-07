@@ -16,7 +16,7 @@ return {
                 'dockerfile',
                 'html',
                 'javascript',
-                'toml'
+                'toml',
             },
             sync_install = false,
             auto_install = true,

@@ -33,7 +33,6 @@ return {
         local ufo = require('ufo')
         map('n', 'zR', ufo.openAllFolds, 'Open all folds')
         map('n', 'zM', ufo.closeAllFolds, 'Close all folds')
-        map('n', '<leader>zz', 'zA', 'Toggle fold')
 
         ufo.setup({
             provider_selector = function()

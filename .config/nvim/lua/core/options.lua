@@ -14,9 +14,13 @@ local opts = {
     splitright = true,
     wrap = false,
     scrolloff = 10,
+    sidescrolloff = 20,
     fileencoding = 'utf-8',
     termguicolors = true,
+
     title = true,
+    titlelen = 0,
+    titlestring = 'nvim %{expand("%:p")}',
 
     number = true,
     relativenumber = true,
