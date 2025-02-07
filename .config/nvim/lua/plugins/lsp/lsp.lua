@@ -1,4 +1,14 @@
-local lsps = { 'lua_ls', 'pyright', 'cssls', 'clangd'}
+local lsps = {
+    'lua_ls',
+    'pyright',
+    'cssls',
+    'clangd',
+    dartls = {
+        cmd = {
+            "dart", "language-server", "--protocol=lsp"
+        },
+    },
+}
 local signs = {
     Error = ' ',
     Warn = ' ',
