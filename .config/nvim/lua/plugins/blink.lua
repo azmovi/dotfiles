@@ -27,7 +27,7 @@ return {
                 }
             },
             documentation = { auto_show = false, auto_show_delay_ms = 500 },
-            ghost_text = { enabled = false },
+            ghost_text = { enabled = true },
         },
 
         keymap = {
@@ -48,7 +48,6 @@ return {
 
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },
-            cmdline = {},
         },
         signature = { enabled = true }
     }
