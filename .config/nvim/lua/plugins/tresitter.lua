@@ -21,10 +21,12 @@ return {
 			ensure_installed = parsers,
 			auto_install = true,
 			highlight = { enable = true },
-			indent = { enable = true },
+			indent = {
+				enable = true,
+				disable = { "python" },
+			},
 		},
 		config = function(_, opts)
-			---@diagnostic disable-next-line: missing-fields
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
