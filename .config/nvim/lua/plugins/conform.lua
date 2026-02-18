@@ -21,7 +21,4 @@ return {
 			lsp_format = "fallback",
 		},
 	},
-	config = function(_, opts)
-		require("conform").setup(opts)
-	end,
 }

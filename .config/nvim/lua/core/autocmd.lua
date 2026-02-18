@@ -30,3 +30,13 @@ vim.api.nvim_create_autocmd(
 	{ "VimResized" },
 	{ pattern = "*", command = "tabdo wincmd =", group = vim.api.nvim_create_augroup("_auto_resize", {}) }
 )
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "html", "htmldjango", "javascript", "css" },
+	callback = function()
+		vim.bo.expandtab = true
+		vim.bo.tabstop = 2
+		vim.bo.shiftwidth = 2
+		vim.bo.softtabstop = 2
+	end,
+})
