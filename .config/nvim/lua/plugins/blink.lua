@@ -1,54 +1,64 @@
 return {
-    'saghen/blink.cmp',
-    dependencies = 'rafamadriz/friendly-snippets',
-    version = '*',
-
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
-    opts = {
-        completion = {
-            keyword = { range = 'full' },
-            accept = { auto_brackets = { enabled = true }, },
-
-            list = {
-                selection = {
-                    preselect = true,
-                    auto_insert = true
-                }
+    {
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+            library = {
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
             },
+        },
+    },
+    {
+        'saghen/blink.cmp',
+        event = "InsertEnter",
+        dependencies = 'rafamadriz/friendly-snippets',
+        version = '1.*',
 
-            menu = {
-                auto_show = true,
-                draw = {
-                    columns = {
-                        { "label", "label_description", gap = 1 },
-                        { "kind_icon", "kind" }
+        ---@module 'blink.cmp'
+        ---@type blink.cmp.Config
+        opts = {
+            completion = {
+                keyword = { range = 'prefix' },
+                accept = {
+                    auto_brackets = {
+                        enabled = true
                     },
-                }
+                },
+
+                list = {
+                    selection = {
+                        preselect = true,
+                        auto_insert = true,
+                    }
+                },
+
+                menu = {
+                    auto_show = false,
+                    draw = {
+                        treesitter = { "lsp" },
+                    },
+                },
+                documentation = {
+                    auto_show = true,
+                    auto_show_delay_ms = 500,
+                },
+                ghost_text = { enabled = true },
             },
-            documentation = { auto_show = false, auto_show_delay_ms = 500 },
-            ghost_text = { enabled = true },
+            fuzzy = { implementation = "prefer_rust_with_warning" },
+            keymap = { preset = 'default' },
+            signature = { enabled = true },
+
+            sources = {
+                default = { 'lsp', 'path', 'snippets', 'buffer' },
+                per_filetype = {
+                    sql = { 'dadbod' },
+                },
+                providers = {
+                    dadbod = { module = "vim_dadbod_completion.blink" },
+                    lazydev = { module = "lazydev.integrations.blink" }
+                },
+            },
         },
-
-        keymap = {
-            preset = 'default',
-            ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-            ['<C-e>'] = { 'hide', 'fallback' },
-            ['<CR>'] = { 'accept', 'fallback' },
-
-            ['<Tab>'] = { 'snippet_forward', 'fallback' },
-            ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
-
-            ['<C-p>'] = { 'select_prev', 'fallback' },
-            ['<C-n>'] = { 'select_next', 'fallback' },
-
-            ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-            ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
-        },
-
-        sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer' },
-        },
-        signature = { enabled = true }
+      opts_extend = { "sources.default" },
     }
 }

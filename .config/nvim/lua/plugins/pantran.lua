@@ -1,7 +1,8 @@
 return {
     'potamides/pantran.nvim',
+    event = "VeryLazy",
     config = function()
-        local map = require('helpers.keys').map
+        local map = require('core.keymaps').map
         local pantran = require('pantran')
         map(
             'v',

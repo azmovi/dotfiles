@@ -1,5 +1,6 @@
 return {
     "nvim-telescope/telescope.nvim",
+    event = "VeryLazy",
     dependencies = {
         "nvim-lua/plenary.nvim",
         {
@@ -8,15 +9,24 @@ return {
         },
     },
     config = function()
-        local map = require("helpers.keys").map
+        local map = require('core.keymaps').map
         local telescope = require('telescope')
         local builtin = require('telescope.builtin')
-        map('n', '<leader>ff', builtin.find_files, 'Telescope find files')
         map('n', '<leader>fg', builtin.live_grep, 'Telescope live grep')
         map('n', '<leader>fb', builtin.buffers, 'Telescope buffers')
         map('n', '<leader>fl', builtin.diagnostics, 'Telescope diagnostics')
         map('n', '<leader>fs', builtin.git_status, 'Telescope git status')
         map('n', '<leader>w', builtin.spell_suggest, 'Telescope spell sugest')
+        map(
+            'n',
+            '<leader>ff',
+            function() require('telescope.builtin').find_files({
+                hidden = true,
+                file_ignore_patterns = { "^.git/" }
+            })
+            end,
+            'Telescope find files (with dotfiles)'
+        )
 
         telescope.setup({
             defaults = {
