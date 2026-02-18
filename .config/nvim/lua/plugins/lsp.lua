@@ -11,6 +11,25 @@ vim.diagnostic.config({
 	},
 })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function()
+		local telescope = require("telescope.builtin")
+		local mapper = require("core.keymaps").map
+
+		mapper("n", "gd", vim.lsp.buf.definition, "go to definition")
+		mapper("n", "gD", vim.lsp.buf.declaration, "go to declaration")
+		mapper("n", "<A-l>", vim.diagnostic.open_float, "move to diagnostic")
+		mapper("n", "<leader>ca", vim.lsp.buf.code_action, "open code actions")
+		mapper("n", "<leader>r", vim.lsp.buf.rename, "replace name at all")
+		mapper("n", "<leader>h", function()
+			require("conform").format({ async = true, lsp_format = "fallback" })
+		end, "format code")
+		mapper("n", "gr", telescope.lsp_references, "go to references")
+		mapper("n", "<leader>rs", ":LspRestart<CR>", "restart LSP")
+	end,
+})
+
 return {
 	"mason-org/mason-lspconfig.nvim",
 	event = "BufReadPre",

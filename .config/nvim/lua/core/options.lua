@@ -3,7 +3,10 @@ local opts = {
 	smarttab = true,
 	tabstop = 4,
 	shiftwidth = 4,
+
 	autoindent = true,
+	smartindent = true,
+	copyindent = true,
 
 	hlsearch = true,
 	incsearch = true,
@@ -23,19 +26,23 @@ local opts = {
 
 	number = true,
 	relativenumber = true,
+
 	cursorline = true,
 	mouse = "a",
+	showmode = false,
+
 	colorcolumn = "80",
 	signcolumn = "yes",
 	completeopt = { "menu", "menuone", "noselect" },
 	spelllang = "pt,en",
+
 	foldmethod = "indent",
-	fillchars = {
-		fold = " ",
-	},
 	foldenable = true,
 	foldlevel = 99,
 	foldminlines = 1,
+
+	swapfile = false,
+	backup = false,
 }
 
 -- Apply options
