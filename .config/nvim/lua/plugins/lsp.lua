@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local telescope = require("telescope.builtin")
 		local map = require("utils").map
 
-		map("n", "gd", vim.lsp.buf.definition, "go to definition")
+		map("n", "gd", telescope.lsp_definitions, "go to definition")
 		map("n", "gD", vim.lsp.buf.declaration, "go to declaration")
 		map("n", "<A-l>", vim.diagnostic.open_float, "move to diagnostic")
 		map("n", "<leader>ca", vim.lsp.buf.code_action, "open code actions")
@@ -38,6 +38,7 @@ return {
 			"lua_ls",
 			"pyright",
 			"ruff",
+			"zuban",
 			"ts_ls",
 			"html",
 			"cssls",
