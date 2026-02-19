@@ -50,5 +50,9 @@ local function ToggleSpellCheck()
 		print("Spell check enabled")
 	end
 end
-
 map("n", "<leader>d", ToggleSpellCheck, "Activate spell checker")
+
+vim.cmd("command! W w")
+vim.cmd("command! Q q")
+vim.cmd("command! Wq wq")
+vim.cmd("command! WQ wq")
