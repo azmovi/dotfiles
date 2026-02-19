@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 return {
 	"nvim-telescope/telescope.nvim",
 	event = "VeryLazy",
@@ -32,16 +34,16 @@ return {
 		},
 	},
 	config = function()
-		local map = require("core.keymaps").map
+		local map = utils.map
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
 		map("n", "<leader>fg", builtin.live_grep, "Telescope live grep")
 		map("n", "<leader>fb", builtin.buffers, "Telescope buffers")
 		map("n", "<leader>fl", builtin.diagnostics, "Telescope diagnostics")
 		map("n", "<leader>fs", builtin.git_status, "Telescope git status")
-		map("n", "<leader>w", builtin.spell_suggest, "Telescope spell sugest")
+		map("n", "<leader>w", builtin.spell_suggest, "Telescope spell suggest")
 		map("n", "<leader>ff", function()
-			builtin.find_files({ hidden = true, file_ignore_patterns = { "^.git/" } })
+			utils.open_project_files()
 		end, "Telescope find files (with dotfiles)")
 		telescope.load_extension("fzf")
 	end,

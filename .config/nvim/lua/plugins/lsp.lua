@@ -15,18 +15,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function()
 		local telescope = require("telescope.builtin")
-		local mapper = require("core.keymaps").map
+		local map = require("utils").map
 
-		mapper("n", "gd", vim.lsp.buf.definition, "go to definition")
-		mapper("n", "gD", vim.lsp.buf.declaration, "go to declaration")
-		mapper("n", "<A-l>", vim.diagnostic.open_float, "move to diagnostic")
-		mapper("n", "<leader>ca", vim.lsp.buf.code_action, "open code actions")
-		mapper("n", "<leader>r", vim.lsp.buf.rename, "replace name at all")
-		mapper("n", "<leader>h", function()
-			require("conform").format({ async = true, lsp_format = "fallback" })
+		map("n", "gd", vim.lsp.buf.definition, "go to definition")
+		map("n", "gD", vim.lsp.buf.declaration, "go to declaration")
+		map("n", "<A-l>", vim.diagnostic.open_float, "move to diagnostic")
+		map("n", "<leader>ca", vim.lsp.buf.code_action, "open code actions")
+		map("n", "<leader>r", vim.lsp.buf.rename, "replace name at all")
+		map("n", "<leader>h", function()
+			vim.lsp.buf.format({ async = true })
 		end, "format code")
-		mapper("n", "gr", telescope.lsp_references, "go to references")
-		mapper("n", "<leader>rs", ":LspRestart<CR>", "restart LSP")
+		map("n", "gr", telescope.lsp_references, "go to references")
+		map("n", "<leader>rs", ":LspRestart<CR>", "restart LSP")
 	end,
 })
 

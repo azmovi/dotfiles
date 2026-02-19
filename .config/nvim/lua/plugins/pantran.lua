@@ -3,7 +3,7 @@ return {
 	event = "VeryLazy",
 	opts = {},
 	config = function()
-		local map = require("core.keymaps").map
+		local map = require("utils").map
 		local pantran = require("pantran")
 		map(
 			"v",

@@ -1,6 +1,4 @@
-local function map(mode, lhs, rhs, desc)
-	vim.keymap.set(mode, lhs, rhs, { silent = true, desc = desc })
-end
+local map = require("utils").map
 
 -- Basics
 map("i", "jk", "<ESC>", "Normal mode")
@@ -54,5 +52,3 @@ local function ToggleSpellCheck()
 end
 
 map("n", "<leader>d", ToggleSpellCheck, "Activate spell checker")
-
-return { map = map }
