@@ -43,6 +43,9 @@ local opts = {
 
 	swapfile = false,
 	backup = false,
+
+	list = true,
+	listchars = { tab = "· ", space = "·", trail = "•", nbsp = "␣" },
 }
 
 -- Apply options

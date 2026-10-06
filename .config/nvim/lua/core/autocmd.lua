@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "html", "htmldjango", "javascript", "css" },
+	pattern = { "html", "htmldjango", "javascript", "css", "markdown" },
 	group = group,
 	desc = "Change tab value",
 	callback = function()
@@ -45,25 +45,14 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-local quitting = false
-vim.api.nvim_create_autocmd("CmdlineLeave", {
-	pattern = "*",
-	group = group,
-	desc = "Check if you are quitting",
-	callback = function()
-		local cmd = vim.fn.getcmdline()
-		if cmd:match("^w?q") then
-			quitting = true
-		end
-	end,
-})
-
+-- Síncrono de propósito: formata ANTES de escrever, num único :w.
+-- Com async=true o 1º :w grava sem formatar e o format re-suja o buffer,
+-- exigindo um 2º :w.
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	group = group,
 	desc = "Format file on save",
 	callback = function()
-		vim.lsp.buf.format({ async = not quitting })
-		quitting = false
+		require("conform").format({ async = false, lsp_fallback = true })
 	end,
 })

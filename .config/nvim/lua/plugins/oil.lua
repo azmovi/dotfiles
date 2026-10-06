@@ -16,6 +16,15 @@ return {
 			end,
 			desc = "Oil",
 		},
+		{
+			"yp",
+			function()
+				local oil = require("oil.actions")
+				oil.copy_entry_path.callback()
+				vim.fn.setreg("+", vim.fn.getreg(vim.v.register))
+			end,
+			desc = "Copy current filepath",
+		},
 	},
 	opts = {
 		float = {

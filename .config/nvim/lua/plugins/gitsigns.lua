@@ -3,7 +3,7 @@ return {
 	event = "BufRead",
 	keys = {
 		{
-			"<leader>gb",
+			"<leader>gt",
 			function()
 				local gitsigns = require("gitsigns")
 				gitsigns.toggle_current_line_blame()

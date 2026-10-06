@@ -3,8 +3,10 @@ local map = require("utils").map
 -- Basics
 map("i", "jk", "<ESC>", "Normal mode")
 map("n", "<leader>x", "<cmd>nohl<cr>", "Clear highlights")
-map("n", "<leader>y", "<cmd>%y+<cr>", "Clipboard all")
+map("n", "<leader>yy", "<cmd>%y+<cr>", "Clipboard all")
 map("v", "<leader>y", '"+y', "Clipboard visual session")
+map("n", "p", "p`[V`]=", "paste below with indentation")
+map("n", "P", "P`[V`]=", "paste above with indentation")
 
 -- Stay in visual mode
 map("v", "<", "<gv", "Indent code to right")
@@ -38,7 +40,7 @@ end
 map("n", "<leader>q", "<cmd>bd<cr>", "Delete my buffer")
 map("n", "<leader><C-q>", DeleteAllBuffersExceptCurrent, "Delete rest of buffers")
 map("n", "<leader><leader>", "<cmd>bnext<cr>", "Next buffer")
-map("n", "<leader>cp", '<cmd>let @+ = expand("%:p")<cr>', "Copy my current buffer")
+map("n", "<leader>yp", '<cmd>let @+ = expand("%:p")<cr>', "Yank my current buffer path")
 
 -- Spell Checker
 local function ToggleSpellCheck()

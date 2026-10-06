@@ -11,19 +11,19 @@ return {
 			keyword = { range = "prefix" },
 			accept = {
 				auto_brackets = {
-					enabled = true,
+					enabled = false,
 				},
 			},
 
 			list = {
 				selection = {
-					preselect = true,
+					preselect = false,
 					auto_insert = true,
 				},
 			},
 
 			menu = {
-				auto_show = false,
+				auto_show = true,
 				draw = {
 					treesitter = { "lsp" },
 				},
@@ -32,7 +32,7 @@ return {
 				auto_show = true,
 				auto_show_delay_ms = 500,
 			},
-			ghost_text = { enabled = true },
+			ghost_text = { enabled = false },
 		},
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 		keymap = { preset = "default" },
@@ -41,7 +41,7 @@ return {
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
 			per_filetype = {
-				sql = { "dadbod" },
+				sql = { "lsp", "dadbod" },
 			},
 			providers = {
 				dadbod = { module = "vim_dadbod_completion.blink" },

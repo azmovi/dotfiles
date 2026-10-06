@@ -16,17 +16,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function()
 		local telescope = require("telescope.builtin")
 		local map = require("utils").map
-
+		local inlay_hints_enabled = false
+		map("n", "<leader>t", function()
+			inlay_hints_enabled = not inlay_hints_enabled
+			vim.lsp.inlay_hint.enable(inlay_hints_enabled)
+		end, "toggle inlay hints")
 		map("n", "gd", telescope.lsp_definitions, "go to definition")
 		map("n", "gD", vim.lsp.buf.declaration, "go to declaration")
 		map("n", "<A-l>", vim.diagnostic.open_float, "move to diagnostic")
-		map("n", "<leader>ca", vim.lsp.buf.code_action, "open code actions")
+		map("n", "ca", vim.lsp.buf.code_action, "open code actions")
 		map("n", "<leader>r", vim.lsp.buf.rename, "replace name at all")
-		map("n", "<leader>h", function()
-			vim.lsp.buf.format({ async = true })
-		end, "format code")
 		map("n", "gr", telescope.lsp_references, "go to references")
-		map("n", "<leader>rs", ":LspRestart<CR>", "restart LSP")
+		map("n", "<leader>lr", "<Cmd>lsp restart<CR>", "restart LSP")
 	end,
 })
 
@@ -34,9 +35,10 @@ return {
 	"mason-org/mason-lspconfig.nvim",
 	event = "BufReadPre",
 	opts = {
+		automatic_enable = { exclude = { "sqls" } },
 		ensure_installed = {
 			"lua_ls",
-			"pyright",
+			-- "pyright",
 			"ruff",
 			"zuban",
 			"ts_ls",
@@ -45,7 +47,10 @@ return {
 			"tailwindcss",
 			"eslint",
 			"typos_lsp",
-			"sqls",
+			"emmet_ls",
+			"tombi",
+			"marksman",
+			"cucumber_language_server",
 		},
 	},
 	dependencies = {
